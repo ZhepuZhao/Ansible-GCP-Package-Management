@@ -1,0 +1,19 @@
+plugin: gcp_compute
+projects:
+  - project_name_shown_on_GCP_console
+filters: []
+
+# group hosts by zones
+keyed_groups:
+  - key: zone
+ 
+# to show the VM names rather than IP address, do as follow:
+#hostnames:
+#  - name
+
+# Group hosts by customization 
+groups:
+  web-servers: "'web-' in name"
+  rc-servers: "'rc-' in name"
+auth_kind: serviceaccount
+service_account_file: ../sample_credential.json
